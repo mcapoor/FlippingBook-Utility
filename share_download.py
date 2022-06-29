@@ -37,7 +37,7 @@ for file in files:
     pyautogui.hotkey('enter')
     
     time.sleep(1)
-    
+
     while (get_color(GREY_LOCATION) == (97, 98, 99)):
         print("waiting to open")
         time.sleep(3)
@@ -47,20 +47,26 @@ for file in files:
 
     if (get_color(SHARE_LOCATION) != NOT_TOGGLED_COLOR):
         pyautogui.click(SHARE_LOCATION)
+        share_flag = True
         time.sleep(0.3)
 
     if (get_color(PRINT_LOCATION) != NOT_TOGGLED_COLOR):
         pyautogui.click(PRINT_LOCATION)
+        print_flag = True
         time.sleep(0.3)
 
-    pyautogui.click(UPLOAD_LOCATION)
-    time.sleep(0.3)
-    pyautogui.hotkey('enter')
+    if (share_flag or print_flag):
+        pyautogui.click(UPLOAD_LOCATION)
+        time.sleep(0.3)
+        pyautogui.hotkey('enter')
+
+        while (get_color(YELLOW_LOCATION) != YELLOW_COLOR):
+            print("waiting to upload")
+            time.sleep(3) 
     
-    while (get_color(YELLOW_LOCATION) != YELLOW_COLOR):
-        print("waiting to upload")
-        time.sleep(3) 
-        
+    share_flag = False
+    print_flag = False
+
     pyautogui.hotkey('esc')
     time.sleep(1)
     pyautogui.click(HOME_LOCATION)
