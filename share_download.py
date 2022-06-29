@@ -24,12 +24,16 @@ with open("target_dir.txt", 'r') as f:
 
 files = os.listdir(path)
 
+print(files)
+
 for file in files:
+    print(file)
     pyautogui.hotkey('ctrl', 'o', interval = 0.15)
     pyperclip.copy(file.strip("'"))
     pyautogui.hotkey('enter')
     
     while (get_color(GREY_BACK_LOCATION) == GREY_COLOR):
+        print("waiting to open")
         time.sleep(1)
 
     pyautogui.click(CONTROL_LOCATION) 
@@ -40,6 +44,7 @@ for file in files:
         pyautogui.hotkey('enter')
        
         while (get_color(YELLOW_LOCATION) != YELLOW_COLOR):
+            print("waiting to upload")
             time.sleep(1) 
             
         pyautogui.hotkey('esc')
