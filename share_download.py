@@ -18,7 +18,6 @@ GREY_LOCATION = (915, 478)
 
 NOT_TOGGLED_COLOR = (228, 231, 233)
 YELLOW_COLOR = (247, 245, 226)
-GREY_COLOR = (124, 124, 124)
 
 with open("target_dir.txt", 'r') as f:
     path = f.read().strip("'")
@@ -36,6 +35,8 @@ for file in files:
     pyautogui.hotkey('ctrl', 'v', interval = 0.15)
     time.sleep(0.3)
     pyautogui.hotkey('enter')
+    
+    time.sleep(1)
     
     while (get_color(GREY_LOCATION) == (97, 98, 99)):
         print("waiting to open")
