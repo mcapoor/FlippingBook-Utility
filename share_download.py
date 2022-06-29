@@ -29,6 +29,7 @@ print(files)
 for file in files:
     print(file)
     pyautogui.hotkey('ctrl', 'o', interval = 0.15)
+    time.sleep(1)
     pyperclip.copy(file.strip("'"))
     pyautogui.hotkey('enter')
     
@@ -39,8 +40,11 @@ for file in files:
     pyautogui.click(CONTROL_LOCATION) 
     if (get_color(SHARE_LOCATION) == SHARE_NOT_TOGGLED_COLOR):
         pyautogui.click(SHARE_LOCATION)
+        time.sleep(0.3)
         pyautogui.click((SHARE_LOCATION[0], SHARE_LOCATION[1] + 50))
+        time.sleep(0.3)
         pyautogui.click(UPLOAD_LOCATION)
+        time.sleep(0.3)
         pyautogui.hotkey('enter')
        
         while (get_color(YELLOW_LOCATION) != YELLOW_COLOR):
@@ -48,8 +52,11 @@ for file in files:
             time.sleep(1) 
             
         pyautogui.hotkey('esc')
+        time.sleep(0.3)
         pyautogui.click(HOME_LOCATION)
         continue
     else: 
         pyautogui.click(HOME_LOCATION)
         continue
+
+time.sleep(10)
