@@ -32,16 +32,18 @@ for file in files:
     pyautogui.click(86, 288)
     pyperclip.copy(file.strip("'"))
     pyautogui.hotkey('ctrl', 'o', interval = 0.15)
-    time.sleep(2)
+    time.sleep(0.3)
     pyautogui.hotkey('ctrl', 'v', interval = 0.15)
-    time.sleep(2)
+    time.sleep(0.3)
     pyautogui.hotkey('enter')
+    time.sleep(0.5)
     
     while (get_color(GREY_BACK_LOCATION) == GREY_COLOR):
         print("waiting to open")
         time.sleep(3)
 
     pyautogui.click(CONTROL_LOCATION) 
+    time.sleep(0.5)
     
     if (get_color(SHARE_LOCATION) != SHARE_NOT_TOGGLED_COLOR):
         pyautogui.click(SHARE_LOCATION)
