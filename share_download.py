@@ -29,10 +29,11 @@ print(files)
 
 for file in files:
     print(file)
+    pyautogui.click(86, 288)
     pyperclip.copy(file.strip("'"))
     pyautogui.hotkey('ctrl', 'o', interval = 0.15)
     time.sleep(2)
-    pyperclip.paste()
+    pyautogui.hotkey('ctrl', 'v', interval = 0.15)
     time.sleep(2)
     pyautogui.hotkey('enter')
     
