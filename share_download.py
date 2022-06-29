@@ -19,7 +19,10 @@ SHARE_NOT_TOGGLED_COLOR = (228, 231, 233)
 YELLOW_COLOR = (247, 245, 226)
 GREY_COLOR = (123, 123, 123)
 
-files = os.listdir()
+with open("target_dir.txt", 'r') as f:
+    path = f.read().strip("'")
+
+files = os.listdir(path)
 
 for file in files:
     pyautogui.hotkey('ctrl', 'o', interval = 0.15)
