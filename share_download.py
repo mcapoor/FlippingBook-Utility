@@ -14,7 +14,7 @@ PRINT_LOCATION = (138, 585)
 HOME_LOCATION = (50, 67)
 UPLOAD_LOCATION = (560, 65)
 YELLOW_LOCATION = (1205, 411)
-GREY_BACK_LOCATION = (250, 300)
+GREY_LOCATION = (915, 478)
 
 SHARE_NOT_TOGGLED_COLOR = (228, 231, 233)
 YELLOW_COLOR = (247, 245, 226)
@@ -38,7 +38,7 @@ for file in files:
     pyautogui.hotkey('enter')
     time.sleep(0.5)
     
-    while (get_color(GREY_BACK_LOCATION) == GREY_COLOR):
+    while (get_color(GREY_LOCATION) == (97, 98, 99)):
         print("waiting to open")
         time.sleep(3)
 
@@ -68,5 +68,3 @@ for file in files:
         pyautogui.click(HOME_LOCATION)
         time.sleep(0.5)
         continue
-
-time.sleep(100)
