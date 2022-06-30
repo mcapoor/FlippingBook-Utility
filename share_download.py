@@ -3,6 +3,7 @@ import time
 import pyautogui
 import PIL.ImageGrab
 import os
+import smtplib
 
 def get_color(location):
     return PIL.ImageGrab.grab().load()[location]
@@ -60,7 +61,11 @@ for file in files:
         time.sleep(0.3)
         pyautogui.hotkey('enter')
 
+        start_time = time.time()
         while (get_color(YELLOW_LOCATION) != YELLOW_COLOR):
+            if (time.time() - start_time > 600):
+                print("***************\n \n \n \n \n {} FAILED \n \n \n \n \n \n*************".format(file))
+                continue
             print("waiting to upload")
             time.sleep(3) 
     
